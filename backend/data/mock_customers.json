@@ -1,0 +1,58 @@
+{
+  "POL-001234": {
+    "name": "Rajesh Roy",
+    "policy_number": "POL-001234",
+    "vehicle": "2021 Toyota Camry",
+    "plan": "premium",
+    "status": "active",
+    "expiry": "2027-01-15"
+  },
+  "POL-005678": {
+    "name": "Sarah Johnson",
+    "policy_number": "POL-005678",
+    "vehicle": "2019 Honda Civic",
+    "plan": "standard",
+    "status": "active",
+    "expiry": "2026-09-30"
+  },
+  "POL-009012": {
+    "name": "Michael Brown",
+    "policy_number": "POL-009012",
+    "vehicle": "2022 Ford F-150",
+    "plan": "basic",
+    "status": "active",
+    "expiry": "2026-06-15"
+  },
+  "POL-003456": {
+    "name": "Emily Davis",
+    "policy_number": "POL-003456",
+    "vehicle": "2020 BMW 3 Series",
+    "plan": "premium",
+    "status": "active",
+    "expiry": "2027-03-20"
+  },
+  "POL-007890": {
+    "name": "Robert Wilson",
+    "policy_number": "POL-007890",
+    "vehicle": "2018 Chevrolet Malibu",
+    "plan": "standard",
+    "status": "expired",
+    "expiry": "2025-12-01"
+  },
+  "POL-002345": {
+    "name": "Jennifer Martinez",
+    "policy_number": "POL-002345",
+    "vehicle": "2023 Tesla Model 3",
+    "plan": "premium",
+    "status": "active",
+    "expiry": "2027-06-10"
+  },
+  "POL-006789": {
+    "name": "David Anderson",
+    "policy_number": "POL-006789",
+    "vehicle": "2017 Nissan Altima",
+    "plan": "basic",
+    "status": "suspended",
+    "expiry": "2026-04-01"
+  }
+}
