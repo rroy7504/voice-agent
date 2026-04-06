@@ -17,7 +17,7 @@ export function ToolCallLog({ toolCalls }: Props) {
       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
         {toolCalls.map((tc, i) => (
           <div
-            key={i}
+            key={tc.id || i}
             style={{ background: "#1e293b", borderRadius: 6, padding: "8px 12px", cursor: "pointer" }}
             onClick={() => setExpanded(expanded === i ? null : i)}
           >

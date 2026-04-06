@@ -20,7 +20,7 @@ export function TranscriptPanel({ transcript }: Props) {
           <div style={{ color: "#475569", fontStyle: "italic", fontSize: 13 }}>Waiting for conversation...</div>
         )}
         {transcript.map((entry, i) => (
-          <div key={i} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+          <div key={entry.id || i} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
             <span style={{
               fontSize: 11,
               fontWeight: 600,

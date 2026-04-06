@@ -1,4 +1,5 @@
 export interface TranscriptEntry {
+  id?: string;
   role: "customer" | "agent" | "user" | "system";
   text: string;
   timestamp: string;
@@ -10,6 +11,7 @@ export interface TranscriptEntry {
 }
 
 export interface ToolCallEntry {
+  id?: string;
   tool: string;
   input: Record<string, unknown>;
   output: Record<string, unknown>;
@@ -57,6 +59,7 @@ export interface IncidentData {
 }
 
 export interface WSEvent {
+  id?: string;
   event_type: string;
   call_id: string;
   timestamp: string;

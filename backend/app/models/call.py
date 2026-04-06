@@ -1,5 +1,6 @@
 from datetime import datetime
 from typing import Optional
+from uuid import uuid4
 from pydantic import BaseModel, Field
 
 
@@ -44,12 +45,14 @@ class CustomerNotification(BaseModel):
 
 
 class TranscriptEntry(BaseModel):
+    id: str = Field(default_factory=lambda: uuid4().hex[:12])
     role: str  # customer, agent
     text: str
     timestamp: str
 
 
 class ToolCallEntry(BaseModel):
+    id: str = Field(default_factory=lambda: uuid4().hex[:12])
     tool: str
     input: dict
     output: dict

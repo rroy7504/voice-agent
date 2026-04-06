@@ -45,6 +45,7 @@ function reducer(state: CallState, action: Action): CallState {
         const updated = [...prev];
         updated[updated.length - 1] = {
           ...last,
+          id: last.id || action.entry.id,
           text: last.text + " " + action.entry.text,
           timestamp: action.entry.timestamp,
         };
@@ -73,6 +74,7 @@ export function useWebSocket(url: string) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const wsRef = useRef<WebSocket | null>(null);
   const reconnectTimer = useRef<ReturnType<typeof setTimeout>>();
+  const seenIds = useRef<Set<string>>(new Set());
 
   const connect = useCallback(() => {
     const ws = new WebSocket(url);
@@ -83,6 +85,21 @@ export function useWebSocket(url: string) {
     ws.onmessage = (event) => {
       const data: WSEvent = JSON.parse(event.data);
       const { event_type, call_id, payload } = data;
+
+      // Deduplicate by event ID
+      if (data.id) {
+        if (seenIds.current.has(data.id)) return;
+        seenIds.current.add(data.id);
+        // Cap set size to prevent unbounded growth
+        if (seenIds.current.size > 5000) {
+          const iter = seenIds.current.values();
+          for (let i = 0; i < 2500; i++) iter.next();
+          // Keep only the newer half
+          const keep = new Set<string>();
+          for (const v of iter) keep.add(v);
+          seenIds.current = keep;
+        }
+      }
 
       switch (event_type) {
         case "call_status":
